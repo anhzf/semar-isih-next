@@ -53,7 +53,7 @@ export default function Home() {
         </Section>
 
         <Section title="Register">
-
+          <a href="https://somelink.com" target="_blank" className="text-center hover:underline">https://somelink.com</a>
         </Section>
 
         <Section title="Organized By" className="px-20 py-20 flex flex-row flex-wrap justify-center gap-32">
