@@ -1,12 +1,15 @@
 import Head from 'next/head';
+import TheNav from 'components/blocks/TheNav';
 
 export default function MainLayout({ children }) {
   return (<>
     <Head>
-      <title>SEMAR-ISIH - Sebelas Maret International Student IOT Hackathon</title>
+      <title>SEMAR-ISIH - Sebelas Maret International Student IOT Hackathon 2021</title>
     </Head>
 
-    <div className="relative w-screen min-h-screen flex flex-col items-baseline">
+    <div className="dark relative w-full min-h-screen flex flex-col items-baseline">
+      <TheNav reveal />
+
       {children}
     </div>
   </>);
