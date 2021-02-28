@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <MainLayout>
       <header className="relative w-full">
-        <article className="w-full h-96 bg-gradient-to-b from-purple-400 via-purple-500 to-indigo-500 flex flex-col justify-end">
-          <h1 className="font-bold text-7xl text-center text-white">SEMAR - ISIH</h1>
-          <h2 className="font-medium text-2xl text-center text-white">Sebelas Maret International Student IOT Hackathon 2021</h2>
+        <article className="w-full h-96 pb-16 sm:pb-4 bg-gradient-to-b from-purple-400 via-purple-500 to-indigo-500 flex flex-col justify-end">
+          <h1 className="font-bold text-5xl sm:text-7xl text-center text-white">SEMAR - ISIH</h1>
+          <h2 className="font-medium text-xl sm:text-2xl text-center text-white">Sebelas Maret International Student IOT Hackathon 2021</h2>
         </article>
 
         <svg className="w-full bg-transparent fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180">
@@ -35,18 +35,19 @@ export default function Home() {
           <TheTimeline />
         </Section>
 
-        <Section title="Prize" className="pt-16 flex flex-row justify-around items-end">
-          <div className="cursor-pointer bg-blue-400 rounded-md shadow-md p-6 flex flex-col hover:bg-gray-300">
+        <Section title="Prize" className="pt-16 flex flex-col sm:flex-row justify-around items-end gap-y-4">
+          <div className="cursor-pointer sm:order-2 bg-yellow-400 rounded-md shadow-md p-6 flex flex-col hover:bg-yellow-300">
+            <h5 className="font-semibold text-2xl text-yellow-900">1st</h5>
+            <span className="my-4 font-medium text-7xl text-white">{(1000).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
+          </div>
+
+          <div className="cursor-pointer sm:order-1 bg-blue-400 rounded-md shadow-md p-6 flex flex-col hover:bg-gray-300">
             <h5 className="font-semibold text-2xl text-white">2nd</h5>
             <span className="my-4 font-medium text-5xl text-blue-900">{(850).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
 
-          <div className="cursor-pointer bg-yellow-400 rounded-md shadow-md p-6 flex flex-col hover:bg-yellow-300">
-            <h5 className="font-semibold text-2xl text-white">1st</h5>
-            <span className="my-4 font-medium text-7xl text-yellow-900">{(1000).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
-          </div>
 
-          <div className="cursor-pointer bg-white rounded-md shadow-md p-6 flex flex-col hover:bg-gray-100">
+          <div className="cursor-pointer sm:order-3 bg-white rounded-md shadow-md p-6 flex flex-col hover:bg-gray-100">
             <h5 className="font-semibold text-2xl text-gray-900">3rd</h5>
             <span className="my-4 font-medium text-3xl text-yellow-400">{(700).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
