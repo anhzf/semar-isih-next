@@ -1,18 +1,26 @@
+import React from 'react';
 import MainLayout from 'components/layouts/MainLayout';
 import TheFooter from 'components/ui/index/TheFooter';
 import TheTimeline from 'components/ui/index/TheTimeline';
+import useElementOnScreen from 'hooks/useElementOnScreen';
 import { toCamel } from 'utils/string';
 
-const Section = ({
+const observerDefaultOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: .2,
+};
+
+const Section = React.memo(React.forwardRef(({
   title,
   className,
   contentClassName,
   titleClassName,
   children,
   ...props
-}) => {
+}, ref) => {
   return (
-    <section id={toCamel(title.toLowerCase())} className={className || 'w-full px-16 py-24'} {...props}>
+    <section ref={ref} id={toCamel(title.toLowerCase())} className={className || 'w-full px-16 py-24'} {...props}>
       <h3 className={titleClassName || 'my-10 font-medium text-4xl text-center text-blue-500'}>{title}</h3>
 
       <article className={`w-full py-4 ${contentClassName || 'flex flex-col justify-center'}`}>
@@ -20,9 +28,15 @@ const Section = ({
       </article>
     </section>
   );
-}
+}))
 
 export default function Home() {
+  const [prizeRef, isPrizeVisible] = useElementOnScreen(observerDefaultOptions);
+  const [topicRef, isTopicVisible] = useElementOnScreen(observerDefaultOptions);
+  const [aboutRef, isAboutVisible] = useElementOnScreen(observerDefaultOptions);
+  const [timelineRef, isTimelineVisible] = useElementOnScreen(observerDefaultOptions);
+  const [organizedRef, isOrganizedVisible] = useElementOnScreen(observerDefaultOptions);
+
   return (
     <MainLayout>
       <header className="relative w-full">
@@ -45,6 +59,10 @@ export default function Home() {
           <a href="https://somelink.com" target="_blank" className="text-center hover:underline">Click here to see guides</a>
         </Section>
 
+        <Section title="Participant Category">
+
+        </Section>
+
         <Section
           title="Timeline"
           className="pt-10 pb-16 bg-indigo-50"
@@ -54,24 +72,30 @@ export default function Home() {
 
         <Section
           title="Prize"
+          ref={prizeRef}
+          titleClassName={`my-10 font-medium text-4xl text-center text-blue-500 ${isPrizeVisible && 'animate__animated animate__fadeInLeft'}`}
           contentClassName="pt-16 flex flex-row flex-wrap justify-center items-end gap-y-4 divide-x-2 divide-white"
         >
-          <div className="prize p-16 flex flex-col">
+          <div className={`prize p-16 flex flex-col ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
             <span className="my-4 font-medium text-5xl text-white">{(850).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
 
-          <div className="prize p-16 flex flex-col">
+          <div className={`prize p-16 flex flex-col ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">1st</h5>
             <span className="my-4 font-medium text-7xl text-white">{(1000).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
 
-          <div className="prize p-16 flex flex-col">
+          <div className={`prize p-16 flex flex-col ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">3rd</h5>
             <span className="my-4 font-medium text-3xl text-white">{(700).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
 
-          <span className="w-full my-10 font-semibold text-center text-3xl bg-clip-text bg-gradient-to-br from-blue-500 to-indigo-500 text-transparent">and, {(70).toLocaleString('en-US', { style: 'currency', currency: 'USD' })} for each favorite winners</span>
+          <span
+            className={`w-full my-10 font-semibold text-center text-3xl bg-clip-text bg-gradient-to-br from-blue-500 to-indigo-500 text-transparent  ${isPrizeVisible && 'animate__animated animate__fadeInUp'}`}
+          >
+            and, {(70).toLocaleString('en-US', { style: 'currency', currency: 'USD' })} for each favorite winners
+          </span>
         </Section>
 
         <Section
@@ -89,6 +113,10 @@ export default function Home() {
           <img src="/assets/Logo-hmte.png" className="w-32 h-32 object-contain" />
           <img src="/assets/1462853_logo_1572951228_n.png" className="w-32 h-32 object-contain" />
           <img src="/assets/Arms_of_KMITL.png" className="w-32 h-32 object-contain" />
+        </Section>
+
+        <Section title="FAQ">
+
         </Section>
       </main>
 
