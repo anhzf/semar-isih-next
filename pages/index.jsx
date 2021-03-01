@@ -1,16 +1,26 @@
 import MainLayout from 'components/layouts/MainLayout';
 import TheFooter from 'components/ui/index/TheFooter';
 import TheTimeline from 'components/ui/index/TheTimeline';
+import { toCamel } from 'utils/string';
 
-const Section = ({ title, children, className, ...props }) => (
-  <section id={title.toLowerCase()} className="w-full px-16" {...props}>
-    <h3 className="mt-4 my-10 font-medium text-4xl text-center text-blue-500">{title}</h3>
+const Section = ({
+  title,
+  className,
+  contentClassName,
+  titleClassName,
+  children,
+  ...props
+}) => {
+  return (
+    <section id={toCamel(title.toLowerCase())} className={className || 'w-full px-16 py-24'} {...props}>
+      <h3 className={titleClassName || 'my-10 font-medium text-4xl text-center text-blue-500'}>{title}</h3>
 
-    <article className={`w-full py-4 ${className || 'flex flex-col justify-center'}`}>
-      {children}
-    </article>
-  </section>
-);
+      <article className={`w-full py-4 ${contentClassName || 'flex flex-col justify-center'}`}>
+        {children}
+      </article>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -26,38 +36,52 @@ export default function Home() {
         </svg>
       </header>
 
-      <main className="mt-36 w-full flex flex-col gap-y-40">
-        <Section title="Tema">
+      <main className="mt-24 w-full flex flex-col gap-y-4">
+        <Section title="Topic">
           <blockquote className="font-semibold text-2xl text-center">"IoT Innovation for Covid-19 pandemic recovery"</blockquote>
         </Section>
 
-        <Section title="Timeline">
+        <Section title="About">
+          <a href="https://somelink.com" target="_blank" className="text-center hover:underline">Click here to see guides</a>
+        </Section>
+
+        <Section
+          title="Timeline"
+          className="pt-10 pb-16 bg-indigo-50"
+        >
           <TheTimeline />
         </Section>
 
-        <Section title="Prize" className="pt-16 flex flex-col sm:flex-row justify-around items-end gap-y-4">
-          <div className="cursor-pointer sm:order-2 bg-yellow-400 rounded-md shadow-md p-6 flex flex-col hover:bg-yellow-300">
-            <h5 className="font-semibold text-2xl text-yellow-900">1st</h5>
+        <Section
+          title="Prize"
+          contentClassName="pt-16 flex flex-row flex-wrap justify-center items-end gap-y-4 divide-x-2 divide-white"
+        >
+          <div className="prize p-16 flex flex-col">
+            <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
+            <span className="my-4 font-medium text-5xl text-white">{(850).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
+          </div>
+
+          <div className="prize p-16 flex flex-col">
+            <h5 className="font-semibold text-2xl text-yellow-700">1st</h5>
             <span className="my-4 font-medium text-7xl text-white">{(1000).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
 
-          <div className="cursor-pointer sm:order-1 bg-blue-400 rounded-md shadow-md p-6 flex flex-col hover:bg-gray-300">
-            <h5 className="font-semibold text-2xl text-white">2nd</h5>
-            <span className="my-4 font-medium text-5xl text-blue-900">{(850).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
+          <div className="prize p-16 flex flex-col">
+            <h5 className="font-semibold text-2xl text-yellow-700">3rd</h5>
+            <span className="my-4 font-medium text-3xl text-white">{(700).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
           </div>
 
-
-          <div className="cursor-pointer sm:order-3 bg-white rounded-md shadow-md p-6 flex flex-col hover:bg-gray-100">
-            <h5 className="font-semibold text-2xl text-gray-900">3rd</h5>
-            <span className="my-4 font-medium text-3xl text-yellow-400">{(700).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
-          </div>
+          <span className="w-full my-10 font-semibold text-center text-3xl bg-clip-text bg-gradient-to-br from-blue-500 to-indigo-500 text-transparent">and, {(70).toLocaleString('en-US', { style: 'currency', currency: 'USD' })} for each favorite winners</span>
         </Section>
 
-        <Section title="Register">
+        <Section
+          title="Register"
+          className="pt-10 pb-16 bg-indigo-50"
+        >
           <a href="https://somelink.com" target="_blank" className="text-center hover:underline">https://somelink.com</a>
         </Section>
 
-        <Section title="Organized By" className="px-20 py-20 flex flex-row flex-wrap justify-center gap-32">
+        <Section title="Organized By" contentClassName="px-20 py-20 flex flex-row flex-wrap justify-center gap-32">
           <img src="/assets/1519889957811.png" className="w-32 h-32 object-contain" />
           <img src="/assets/chiba_university_logo_resized.png" className="w-32 h-32 object-contain" />
           <img src="/assets/Logo-Dies-UNS.png" className="w-32 h-32 object-contain" />

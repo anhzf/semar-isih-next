@@ -3,7 +3,10 @@ import { Card } from 'primereact/card';
 
 const customizedContent = ({ status, date }) => {
   return (
-    <Card title={status} subTitle={date} />
+    <Card
+      title={status}
+      subTitle={date}
+    />
   );
 };
 

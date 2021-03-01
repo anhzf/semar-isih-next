@@ -1,3 +1,32 @@
 html {
   scroll-behavior: smooth;
 }
+
+#timeline .p-card .p-card-title {
+  @apply text-purple-500;
+}
+
+.prize {
+  @apply relative;
+}
+
+.prize::before {
+  content: '';
+  z-index: -1;
+  @apply absolute top-0 left-0 w-full h-full bg-yellow-400;
+}
+
+.prize.animate::before {
+  animation: fill 2s ease-out forwards;
+}
+
+@keyframes fill {
+  from {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
