@@ -13,7 +13,7 @@ html {
 .prize::before {
   content: '';
   z-index: -1;
-  @apply absolute top-0 left-0 w-full h-full bg-yellow-400;
+  @apply absolute top-0 left-0 w-full h-full bg-yellow-400 border-2 border-white;
 }
 
 .prize.animate::before {

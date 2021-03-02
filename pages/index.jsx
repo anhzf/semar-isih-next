@@ -17,9 +17,11 @@ export default function Home() {
           <h2 className="font-medium text-xl sm:text-2xl text-center text-white">Sebelas Maret International Student IOT Hackathon 2021</h2>
         </article>
 
-        <svg className="w-full bg-transparent fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180">
-          <path fill="current" fillOpacity="1" d="M0,32L80,58.7C160,85,320,139,480,160C640,181,800,171,960,154.7C1120,139,1280,117,1360,106.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" />
-        </svg>
+        <div className="relative w-full bg-transparent fill-current">
+          <svg className="text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180">
+            <path fill="current" fillOpacity="1" d="M0,32L80,58.7C160,85,320,139,480,160C640,181,800,171,960,154.7C1120,139,1280,117,1360,106.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" />
+          </svg>
+        </div>
       </header>
 
       <main className="w-full flex flex-col gap-y-4">
@@ -37,7 +39,7 @@ export default function Home() {
         <Section
           title="Prize"
           titleClassName={`my-10 font-medium text-4xl text-center text-blue-500 ${isPrizeVisible && 'animate__animated animate__fadeInLeft'}`}
-          contentClassName="pt-16 flex flex-row flex-wrap justify-center items-end gap-y-4 divide-x-2 divide-white"
+          contentClassName="pt-16 flex flex-row flex-wrap justify-center items-end gap-y-4"
           onIntersection={setIsPrizeVisible}
         >
           <svg className="absolute bottom-14 left-3 w-72 h-72 fill-current text-blue-100" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -73,19 +75,17 @@ export default function Home() {
         <Section
           title="Judges"
           className="py-10 bg-indigo-50"
-          contentClassName="overflow-x-auto px-8 flex flex-row flex-nowrap gap-x-10 divide-x-2 divide-blue-100"
+          contentClassName="overflow-x-auto px-8 pb-14 grid grid-flow-col gap-x-10"
         >
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
-          <JudgeCard />
+          {Array.from(Array(5), (e, i) => (
+            <JudgeCard
+              key={i}
+              name="Squidward Tentpoles"
+              imgSrc="https://placeimg.com/100/100/people"
+              desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis."
+              linkedinLink="https://linkedin.com"
+            />
+          ))}
         </Section>
 
         <Section
