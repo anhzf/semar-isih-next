@@ -8,6 +8,12 @@ import JudgeCard from 'components/ui/index/JudgeCard';
 
 export default function Home() {
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
+  const [isTimelineVisible, setIsTimelineVisible] = useState(false);
+  const [isJudgesVisible, setIsJudgesVisible] = useState(false);
+  const [isRegisterVisible, setIsRegisterVisible] = useState(false);
+  const [isOrganizeByVisible, setIsOrganizeByVisible] = useState(false);
+  const [isFaqVisible, setIsFaqVisible] = useState(false);
 
   return (
     <MainLayout>
@@ -25,20 +31,29 @@ export default function Home() {
       </header>
 
       <main className="w-full flex flex-col gap-y-4">
-        <Section title="About">
+        <Section
+          title="About"
+          titleClassName={isAboutVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          contentClassName={isAboutVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          onIntersection={setIsAboutVisible}
+          observerOption={{ threshold: 1 }}
+        >
           <a href="https://somelink.com" target="_blank" className="text-center hover:underline">Click here to see guides</a>
         </Section>
 
         <Section
           title="Timeline"
           className="pt-10 pb-16 bg-indigo-50"
+          titleClassName={isTimelineVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          contentClassName={isTimelineVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          onIntersection={setIsTimelineVisible}
         >
           <TheTimeline />
         </Section>
 
         <Section
           title="Prize"
-          titleClassName={`my-10 font-medium text-4xl text-center text-blue-500 ${isPrizeVisible && 'animate__animated animate__fadeInLeft'}`}
+          titleClassName={isPrizeVisible ? 'animate__animated animate__fadeInLeft' : 'animate__animated animate__fadeOutLeft'}
           contentClassName="pt-16 flex flex-row flex-wrap justify-center items-end gap-y-4"
           onIntersection={setIsPrizeVisible}
         >
@@ -75,7 +90,9 @@ export default function Home() {
         <Section
           title="Judges"
           className="py-10 bg-indigo-50"
-          contentClassName="overflow-x-auto px-8 pb-14 grid grid-flow-col gap-x-10"
+          contentClassName="overflow-x-auto overflow-y-hidden px-8 pb-14 grid grid-flow-col justify-start gap-x-10"
+          titleClassName={isJudgesVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          onIntersection={setIsJudgesVisible}
         >
           {Array.from(Array(5), (e, i) => (
             <JudgeCard
@@ -84,30 +101,70 @@ export default function Home() {
               imgSrc="https://placeimg.com/100/100/people"
               desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis."
               linkedinLink="https://linkedin.com"
+              className={isJudgesVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+              style={{ animationDelay: `.${i}s` }}
             />
           ))}
         </Section>
 
         <Section
           title="Register"
+          titleClassName={isRegisterVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          contentClassName={isRegisterVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          onIntersection={setIsRegisterVisible}
         >
           <a href="https://somelink.com" target="_blank" className="text-center hover:underline">https://somelink.com</a>
         </Section>
 
         <Section
           title="Organized By"
+          titleClassName={isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
           contentClassName="px-20 py-20 flex flex-row flex-wrap justify-center gap-32"
+          onIntersection={setIsOrganizeByVisible}
         >
-          <img src="/assets/1519889957811.png" className="w-32 h-32 object-contain" />
-          <img src="/assets/chiba_university_logo_resized.png" className="w-32 h-32 object-contain" />
-          <img src="/assets/Logo-Dies-UNS.png" className="w-32 h-32 object-contain" />
-          <img src="/assets/Logo-UNS-Biru.png" className="w-32 h-32 object-contain" />
-          <img src="/assets/Logo-hmte.png" className="w-32 h-32 object-contain" />
-          <img src="/assets/1462853_logo_1572951228_n.png" className="w-32 h-32 object-contain" />
-          <img src="/assets/Arms_of_KMITL.png" className="w-32 h-32 object-contain" />
+          <img
+            src="/assets/1519889957811.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.1s' }}
+          />
+          <img
+            src="/assets/chiba_university_logo_resized.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.2s' }}
+          />
+          <img
+            src="/assets/Logo-Dies-UNS.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.3s' }}
+          />
+          <img
+            src="/assets/Logo-UNS-Biru.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.4s' }}
+          />
+          <img
+            src="/assets/Logo-hmte.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.5s' }}
+          />
+          <img
+            src="/assets/1462853_logo_1572951228_n.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.6s' }}
+          />
+          <img
+            src="/assets/Arms_of_KMITL.png"
+            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            style={{ animationDelay: '.7s' }}
+          />
         </Section>
 
-        <Section title="FAQ">
+        <Section
+          title="FAQ"
+          titleClassName={isFaqVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          contentClassName={isFaqVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          onIntersection={setIsFaqVisible}
+        >
           <Accordion multiple activeIndex={[0]}>
             <AccordionTab header="Header I">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -127,8 +184,7 @@ export default function Home() {
                             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
             </AccordionTab>
 
-            <AccordionTab header="Header IV" disabled>
-            </AccordionTab>
+            <AccordionTab header="Header IV" disabled />
           </Accordion>
         </Section>
       </main>

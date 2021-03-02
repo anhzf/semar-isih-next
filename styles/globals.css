@@ -20,6 +20,26 @@ html {
   animation: fill 2s ease-out forwards;
 }
 
+.section {
+  @apply w-full relative px-16 py-24;
+}
+
+.section__title {
+  @apply my-10 font-semibold text-4xl text-center text-blue-500;
+}
+
+.section__content {
+  @apply w-full py-4 flex flex-col justify-center;
+}
+
+.judge-card {
+  @apply cursor-default relative w-96 p-8 bg-white border border-blue-100 flex flex-col items-center gap-y-4 transition-all duration-300;
+}
+
+.judge-card:hover {
+  @apply shadow-lg;
+}
+
 @keyframes fill {
   from {
     transform: scaleY(0);

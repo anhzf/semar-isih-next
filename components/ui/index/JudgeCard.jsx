@@ -6,9 +6,10 @@ const JuryCard = ({
   imgSrc,
   desc,
   linkedinLink,
+  className,
   ...props
 }) => (
-  <article className="cursor-default relative w-96 p-8 bg-white border border-blue-100 flex flex-col items-center gap-y-4 transition-all duration-300 hover:shadow-lg">
+  <article className={`judge-card ${className}`} {...props}>
     <img
       src={imgSrc}
       alt={name}

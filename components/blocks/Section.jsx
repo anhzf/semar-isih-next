@@ -15,17 +15,21 @@ const Section = ({
   titleClassName,
   children,
   onIntersection,
+  observerOption = {},
   ...props
 }) => {
-  const [ref, isVisible] = useElementOnScreen(observerDefaultOptions);
+  const [ref, isVisible] = useElementOnScreen({
+    ...observerDefaultOptions,
+    ...observerOption,
+  });
 
   useEffect(() => onIntersection?.(isVisible), [isVisible]);
 
   return (
-    <section ref={ref} id={toCamel(title.toLowerCase())} className={className || 'w-full relative px-16 py-24'} {...props}>
-      <h3 className={titleClassName || 'my-10 font-semibold text-4xl text-center text-blue-500'}>{title}</h3>
+    <section ref={ref} id={toCamel(title.toLowerCase())} className={`section ${className}`} {...props}>
+      <h3 className={`section__title ${titleClassName}`}>{title}</h3>
 
-      <article className={`w-full py-4 ${contentClassName || 'flex flex-col justify-center'}`}>
+      <article className={`section__content ${contentClassName}`}>
         {children}
       </article>
     </section>
