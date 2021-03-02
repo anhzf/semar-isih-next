@@ -1,41 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Accordion, AccordionTab } from 'primereact/accordion'
 import MainLayout from 'components/layouts/MainLayout';
+import Section from 'components/blocks/Section';
 import TheFooter from 'components/ui/index/TheFooter';
 import TheTimeline from 'components/ui/index/TheTimeline';
-import useElementOnScreen from 'hooks/useElementOnScreen';
-import { toCamel } from 'utils/string';
-
-const observerDefaultOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: .2,
-};
-
-const Section = React.memo(React.forwardRef(({
-  title,
-  className,
-  contentClassName,
-  titleClassName,
-  children,
-  ...props
-}, ref) => {
-  return (
-    <section ref={ref} id={toCamel(title.toLowerCase())} className={className || 'w-full px-16 py-24'} {...props}>
-      <h3 className={titleClassName || 'my-10 font-medium text-4xl text-center text-blue-500'}>{title}</h3>
-
-      <article className={`w-full py-4 ${contentClassName || 'flex flex-col justify-center'}`}>
-        {children}
-      </article>
-    </section>
-  );
-}))
+import JudgeCard from 'components/ui/index/JudgeCard';
 
 export default function Home() {
-  const [prizeRef, isPrizeVisible] = useElementOnScreen(observerDefaultOptions);
-  const [topicRef, isTopicVisible] = useElementOnScreen(observerDefaultOptions);
-  const [aboutRef, isAboutVisible] = useElementOnScreen(observerDefaultOptions);
-  const [timelineRef, isTimelineVisible] = useElementOnScreen(observerDefaultOptions);
-  const [organizedRef, isOrganizedVisible] = useElementOnScreen(observerDefaultOptions);
+  const [isPrizeVisible, setIsPrizeVisible] = useState(false);
 
   return (
     <MainLayout>
@@ -50,17 +22,9 @@ export default function Home() {
         </svg>
       </header>
 
-      <main className="mt-24 w-full flex flex-col gap-y-4">
-        <Section title="Topic">
-          <blockquote className="font-semibold text-2xl text-center">"IoT Innovation for Covid-19 pandemic recovery"</blockquote>
-        </Section>
-
+      <main className="w-full flex flex-col gap-y-4">
         <Section title="About">
           <a href="https://somelink.com" target="_blank" className="text-center hover:underline">Click here to see guides</a>
-        </Section>
-
-        <Section title="Participant Category">
-
         </Section>
 
         <Section
@@ -72,10 +36,18 @@ export default function Home() {
 
         <Section
           title="Prize"
-          ref={prizeRef}
           titleClassName={`my-10 font-medium text-4xl text-center text-blue-500 ${isPrizeVisible && 'animate__animated animate__fadeInLeft'}`}
           contentClassName="pt-16 flex flex-row flex-wrap justify-center items-end gap-y-4 divide-x-2 divide-white"
+          onIntersection={setIsPrizeVisible}
         >
+          <svg className="absolute bottom-14 left-3 w-72 h-72 fill-current text-blue-100" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="current" d="M16.7,-11.5C21.9,10.3,26.3,26.3,14.5,39.5C2.7,52.6,-25.3,63,-45.1,51.2C-64.8,39.3,-76.4,5.4,-67.5,-21.6C-58.7,-48.5,-29.3,-68.5,-11.8,-64.7C5.8,-60.8,11.6,-33.2,16.7,-11.5Z" transform="translate(100 100)" />
+          </svg>
+
+          <svg className="absolute top-11 right-14 w-60 h-60 fill-current text-yellow-100" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="current" d="M38.7,-16.4C42,-2.4,30.9,12.5,13,28C-5,43.4,-29.9,59.5,-48.5,49.9C-67.1,40.4,-79.4,5.3,-70.2,-16.8C-61.1,-38.8,-30.5,-47.9,-6.4,-45.8C17.7,-43.7,35.4,-30.5,38.7,-16.4Z" transform="translate(100 100)" />
+          </svg>
+
           <div className={`prize p-16 flex flex-col ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
             <span className="my-4 font-medium text-5xl text-white">{(850).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
@@ -99,13 +71,33 @@ export default function Home() {
         </Section>
 
         <Section
+          title="Judges"
+          className="py-10 bg-indigo-50"
+          contentClassName="overflow-x-auto px-8 flex flex-row flex-nowrap gap-x-10 divide-x-2 divide-blue-100"
+        >
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+          <JudgeCard />
+        </Section>
+
+        <Section
           title="Register"
-          className="pt-10 pb-16 bg-indigo-50"
         >
           <a href="https://somelink.com" target="_blank" className="text-center hover:underline">https://somelink.com</a>
         </Section>
 
-        <Section title="Organized By" contentClassName="px-20 py-20 flex flex-row flex-wrap justify-center gap-32">
+        <Section
+          title="Organized By"
+          contentClassName="px-20 py-20 flex flex-row flex-wrap justify-center gap-32"
+        >
           <img src="/assets/1519889957811.png" className="w-32 h-32 object-contain" />
           <img src="/assets/chiba_university_logo_resized.png" className="w-32 h-32 object-contain" />
           <img src="/assets/Logo-Dies-UNS.png" className="w-32 h-32 object-contain" />
@@ -116,7 +108,28 @@ export default function Home() {
         </Section>
 
         <Section title="FAQ">
+          <Accordion multiple activeIndex={[0]}>
+            <AccordionTab header="Header I">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </AccordionTab>
 
+            <AccordionTab header="Header II">
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+              architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+            </AccordionTab>
+
+            <AccordionTab header="Header III">
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+              cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+            </AccordionTab>
+
+            <AccordionTab header="Header IV" disabled>
+            </AccordionTab>
+          </Accordion>
         </Section>
       </main>
 
