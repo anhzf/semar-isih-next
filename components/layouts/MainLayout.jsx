@@ -6,10 +6,10 @@ import Footer from 'components/blocks/Footer';
 export default function MainLayout({ children }) {
   return (<>
     <Head>
-      <title>SEMAR-ISIH - Sebelas Maret International Student IOT Hackathon 2021</title>
+      <title>SEBELAS MARET INTERNATIONAL IoT CHALLENGE 2021</title>
     </Head>
 
-    <div className="dark relative w-full min-h-screen flex flex-col items-baseline">
+    <div className="dark relative w-full min-h-screen bg-yellow-50 flex flex-col items-baseline">
       <TheNav reveal />
 
       {children}

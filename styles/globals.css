@@ -14,10 +14,13 @@ html {
   @apply relative p-16 flex flex-col;
 }
 
+.prize * {
+  @apply z-10;
+}
+
 .prize::before {
   content: '';
-  z-index: -1;
-  @apply absolute top-0 left-0 w-full h-full bg-yellow-400 border-2 border-white;
+  @apply absolute z-0 top-0 left-0 w-full h-full bg-yellow-400 border-2 border-white;
 }
 
 .prize.animate::before {
