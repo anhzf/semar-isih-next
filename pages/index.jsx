@@ -12,13 +12,16 @@ export default function Home() {
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);
   const [isJudgesVisible, setIsJudgesVisible] = useState(false);
-  const [isRegisterVisible, setIsRegisterVisible] = useState(false);
+  const [isTermsVisible, setIsTermsVisible] = useState(false);
   const [isOrganizeByVisible, setIsOrganizeByVisible] = useState(false);
   const [isFaqVisible, setIsFaqVisible] = useState(false);
 
   return (
     <MainLayout>
-      <header className="relative w-full">
+      <header
+        className="relative w-full"
+        style={{ animation: 'hue-rotate 20s infinite' }}
+      >
         <article className="w-full h-96 pb-16 sm:pb-4 bg-gradient-to-b from-purple-400 via-purple-500 to-indigo-500 flex flex-col justify-end">
           <h1 className="font-bold text-center text-white">
             {/* SEMAR - ISIH */}
@@ -56,20 +59,22 @@ export default function Home() {
         <Section
           title="Terms"
           className="py-10 bg-indigo-50"
+          titleClassName={isTermsVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
           contentClassName="mx-auto max-w-5xl"
+          onIntersection={setIsTermsVisible}
         >
           <ul className="pb-5 flex flex-col gap-y-1">
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Participants are undergraduate students worldwide</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Each team consists of a maximum of 3 persons</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />The team must come from one same university</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />The team members can consist of various faculties or departments</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Each team consists of a head, members, and counselors</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Each team only allowed to collect one title</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />The team that qualified for the Grand Final shall present the project through Zoom Cloud Meeting on May 19, 2021</li>
-            <li className="px-2 py-5 bg-white align-middle rounded hover:bg-gray-50"><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Participants who do not qualify may forfeit</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Participants are undergraduate students worldwide</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Each team consists of a maximum of 3 persons</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />The team must come from one same university</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />The team members can consist of various faculties or departments</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Each team consists of a head, members, and counselors</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Each team only allowed to collect one title</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />The team that qualified for the Grand Final shall present the project through Zoom Cloud Meeting on May 19, 2021</li>
+            <li className={`px-2 py-5 bg-white align-middle rounded hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}><HiCheckCircle className="inline mx-4 text-xl text-green-400" />Participants who do not qualify may forfeit</li>
           </ul>
 
-          <Button label="Download Guidelines" className="p-button-rounded self-center mt-6" />
+          <Button label="Download Guidelines" className={`p-button-rounded self-center mt-6 animate__animated ${isTermsVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
         </Section>
 
         <Section
@@ -139,18 +144,6 @@ export default function Home() {
           ))}
         </Section>
 
-        {/* <Section
-          title="Register Now"
-          className="bg-indigo-50"
-          titleClassName={isRegisterVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
-          contentClassName={isRegisterVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
-          onIntersection={setIsRegisterVisible}
-        >
-          <a href="https://somelink.com" target="_blank" className="text-center">
-            <Button label="Daftar Sekarang" className="p-button-rounded" />
-          </a>
-        </Section> */}
-
         <Section
           title="Organized By"
           titleClassName={isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
@@ -159,37 +152,37 @@ export default function Home() {
         >
           <img
             src="/assets/1519889957811.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.1s' }}
           />
           <img
             src="/assets/chiba_university_logo_resized.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.2s' }}
           />
           <img
             src="/assets/Logo-Dies-UNS.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.3s' }}
           />
           <img
             src="/assets/Logo-UNS-Biru.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.4s' }}
           />
           <img
             src="/assets/Logo-hmte.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.5s' }}
           />
           <img
             src="/assets/1462853_logo_1572951228_n.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.6s' }}
           />
           <img
             src="/assets/Arms_of_KMITL.png"
-            className={`w-32 h-32 object-contain ${isOrganizeByVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}`}
+            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
             style={{ animationDelay: '.7s' }}
           />
         </Section>
