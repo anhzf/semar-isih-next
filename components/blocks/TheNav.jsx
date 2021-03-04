@@ -7,7 +7,7 @@ export default function TheNav({ reveal }) {
   const menuRef = useRef(null);
   const aboutDropdownItems = useMemo(() => [
     {
-      label: 'About Semar-ISIH',
+      label: 'About the event',
       command(e) {
         menuRef.current.hide(e);
         window.location.assign('/#about');
@@ -37,8 +37,8 @@ export default function TheNav({ reveal }) {
         />
       </div>
 
-      <a href="#guideline">
-        <Button label="Guideline" className="p-button-text p-button-rounded" />
+      <a href="#terms">
+        <Button label="Guidelines" className="p-button-text p-button-rounded" />
       </a>
 
       <a href="#timeline">
@@ -53,7 +53,7 @@ export default function TheNav({ reveal }) {
         <Button label="FAQ" className="p-button-text p-button-rounded" />
       </a>
 
-      <a href="#register">
+      <a href="https://example.com" target="_blank">
         <Button label="Register" className="p-button-rounded p-button-warning" />
       </a>
     </nav>

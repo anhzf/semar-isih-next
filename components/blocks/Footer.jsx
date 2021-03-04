@@ -34,7 +34,18 @@ export default function TheFooter() {
             </svg>
           </a>
         </div> */}
-        <div className="text-center text-gray-500 dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
+        <div className="text-gray-200">
+          <h5 className="text-lg">Contact Us</h5>
+
+          <ul className="mt-3 font-light flex flex-col gap-y-2">
+            <li>Instagram: @hmteuns</li>
+            <li>Whatsapp: +62 9292 2299 292</li>
+            <li>Facebook: HMTE UNS</li>
+            <li>Email: hmte@uns.ac.id</li>
+          </ul>
+        </div>
+
+        <div className="text-center text-gray-500 dark:text-gray-200 pt-4 sm:pt-6 font-light flex items-center justify-center">
           Copyright © 2021 All rights reserved
         </div>
       </div>

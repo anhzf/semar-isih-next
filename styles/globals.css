@@ -2,12 +2,16 @@ html {
   scroll-behavior: smooth;
 }
 
+.p-timeline-event:nth-child(even) .p-card {
+  @apply ml-auto;
+}
+
 #timeline .p-card .p-card-title {
   @apply text-purple-500;
 }
 
 .prize {
-  @apply relative;
+  @apply relative p-16 flex flex-col;
 }
 
 .prize::before {
@@ -33,7 +37,7 @@ html {
 }
 
 .judge-card {
-  @apply cursor-default relative w-96 p-8 bg-white border border-blue-100 flex flex-col items-center gap-y-4 transition-all duration-300;
+  @apply cursor-default relative w-96 p-8 bg-white border border-blue-50 rounded shadow flex flex-col items-center gap-y-4 transition-all duration-300;
 }
 
 .judge-card:hover {

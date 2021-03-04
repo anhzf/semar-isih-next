@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import TheNav from 'components/blocks/TheNav';
+import Footer from 'components/blocks/Footer';
 
 export default function MainLayout({ children }) {
   return (<>
@@ -12,6 +13,7 @@ export default function MainLayout({ children }) {
       <TheNav reveal />
 
       {children}
+      <Footer />
     </div>
   </>);
 };

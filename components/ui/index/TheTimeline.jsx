@@ -6,6 +6,7 @@ const customizedContent = ({ status, date }) => {
     <Card
       title={status}
       subTitle={date}
+      className="max-w-lg"
     />
   );
 };
