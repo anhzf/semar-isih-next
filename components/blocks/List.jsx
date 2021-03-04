@@ -1,5 +1,0 @@
-// const List = function () {
-//   return (
-
-//   )
-// }

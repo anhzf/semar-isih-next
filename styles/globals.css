@@ -6,6 +6,10 @@ html {
   @apply ml-auto;
 }
 
+.p-timeline.p-timeline-vertical .p-timeline-event-content {
+  @apply py-4;
+}
+
 #timeline .p-card .p-card-title {
   @apply text-purple-500;
 }
@@ -19,7 +23,7 @@ html {
 }
 
 .prize::before {
-  content: '';
+  content: "";
   @apply absolute z-0 top-0 left-0 w-full h-full bg-yellow-400 border-2 border-white;
 }
 
@@ -45,6 +49,16 @@ html {
 
 .judge-card:hover {
   @apply shadow-lg;
+}
+
+@screen sm {
+  .section {
+    @apply px-6;
+  }
+
+  #timeline .p-card .p-card-title {
+    @apply text-lg;
+  }
 }
 
 @keyframes fill {

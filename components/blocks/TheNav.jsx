@@ -1,8 +1,10 @@
 import { useMemo, useRef } from 'react';
+import { useRouter } from 'next/router'
 import { Button } from 'primereact/button';
 import { Menu } from 'primereact/menu';
 
 export default function TheNav({ reveal }) {
+  const router = useRouter();
   const bgColor = reveal ? 'bg-white' : 'bg-transparent';
   const menuRef = useRef(null);
   const aboutDropdownItems = useMemo(() => [
@@ -10,12 +12,14 @@ export default function TheNav({ reveal }) {
       label: 'About the event',
       command(e) {
         menuRef.current.hide(e);
-        window.location.assign('/#about');
+        router.push('/#about');
       },
     },
     {
       label: 'About UNS',
-      url: '/about-uns',
+      command(e) {
+        router.push('/about-uns');
+      }
     },
   ]);
 
