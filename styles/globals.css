@@ -15,7 +15,7 @@ html {
 }
 
 .prize {
-  @apply relative p-16 flex flex-col;
+  @apply relative px-16 py-12 flex flex-col;
 }
 
 .prize * {

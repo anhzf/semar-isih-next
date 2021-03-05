@@ -6,8 +6,10 @@ import MainLayout from 'components/layouts/MainLayout';
 import Section from 'components/blocks/Section';
 import TheTimeline from 'components/ui/index/TheTimeline';
 import JudgeCard from 'components/ui/index/JudgeCard';
+import { about, terms, judges, faqs, organizer } from 'data/content';
 
 const USDFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+const IDRFormat = amount => amount.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
 
 export default function Home() {
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
@@ -51,7 +53,7 @@ export default function Home() {
           observerOption={{ threshold: .25 }}
         >
           <p className="mx-auto w-full max-w-2xl leading-relaxed">
-            The Covid-19 pandemic has changed the human lifestyle around the world. In everything limited, the internet is a technology that can be relied on to break through these limitations. Therefore, the Sebelas Maret International IoT Challenge 2021 was present. This competition’s theme is "IoT Innovation For Covid-19 Pandemic Recovery, “ held by the Faculty of Engineering Universitas Sebelas Maret Surakarta. We invite undergraduate students worldwide to participate in this competition by providing Internet of Things (IoT) ideas in dealing with the Covid-19 pandemic. Through the Sebelas Maret International IoT Challenge 2021, we hope that the resulting ideas can help deal with the Covid-19 pandemic in various sectors.
+            {about}
           </p>
         </Section>
 
@@ -63,42 +65,25 @@ export default function Home() {
           onIntersection={setIsTermsVisible}
         >
           <ul className="pb-5 flex flex-col gap-y-1">
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.0s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>Participants are undergraduate students worldwide</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.05s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>Each team consists of a maximum of 3 persons</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.1s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>The team must come from one same university</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.15s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>The team members can consist of various faculties or departments</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.2s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>Each team consists of a head, members, and counselors</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.25s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>Each team only allowed to collect one title</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.3s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>The team that qualified for the Grand Final shall present the project through Zoom Cloud Meeting on May 19, 2021</p>
-            </li>
-            <li className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`} style={{ animationDelay: '.35s' }}>
-              <HiCheckCircle className="mx-4 text-2xl text-green-400" />
-              <p>Participants who do not qualify may forfeit</p>
-            </li>
+            {terms.map((term, i) => (
+              <li
+                key={i}
+                className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}
+                style={{ animationDelay: `.${i * .05}s` }}
+              >
+                <div className="w-6 h-6 mx-4">
+                  <HiCheckCircle className="text-2xl text-green-400" />
+                </div>
+                <p>{term}</p>
+              </li>
+            ))}
           </ul>
 
           <span className={`text-center animate__animated ${isTermsVisible ? 'animate__fadeIn' : 'animate__fadeOut'}`}>For further information, please download the guide book below.</span>
-          <Button label="Download Guidelines" className={`p-button-rounded self-center mt-6 animate__animated ${isTermsVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
+
+          <a href="http://bit.ly/SemarIoT2021-guidelines" target="_blank" rel="noopener noreferrer" className="self-center">
+            <Button label="Download Guidelines" className={`p-button-rounded mt-6 animate__animated ${isTermsVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
+          </a>
         </Section>
 
         <Section
@@ -118,16 +103,19 @@ export default function Home() {
           <div className={`prize order-1 lg:order-first ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
             <span className="my-4 font-medium text-3xl lg:text-5xl text-white">{USDFormat(850)}</span>
+            <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <div className={`prize order-first lg:order-1 ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">1st</h5>
             <span className="my-4 font-medium text-3xl lg:text-7xl text-white">{USDFormat(1000)}</span>
+            <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <div className={`prize order-3 ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">3rd</h5>
             <span className="my-4 font-medium text-3xl lg:text-3xl text-white">{USDFormat(700)}</span>
+            <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <span
@@ -136,7 +124,6 @@ export default function Home() {
             and, {USDFormat(70)} for each favorite winners
           </span>
         </Section>
-
 
         <Section
           title="Timeline"
@@ -155,13 +142,13 @@ export default function Home() {
           titleClassName={isJudgesVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
           onIntersection={setIsJudgesVisible}
         >
-          {Array.from(Array(5), (e, i) => (
+          {judges.map((judge, i) => (
             <JudgeCard
               key={i}
-              name="Coming Soon"
-              imgSrc="https://placeimg.com/100/100/people"
-              desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis."
-              linkedinLink="https://linkedin.com"
+              name={judge.name}
+              imgSrc={judge.photo}
+              desc={judge.desc}
+              linkedinLink={judge.linkedinUrl}
               className={isJudgesVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
               style={{ animationDelay: `.${i}s` }}
             />
@@ -175,26 +162,12 @@ export default function Home() {
           contentClassName={`mx-auto max-w-screen-lg animate__animated ${isFaqVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
           onIntersection={setIsFaqVisible}
         >
-          <Accordion multiple activeIndex={[0]}>
-            <AccordionTab header="Header I">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-              ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </AccordionTab>
-
-            <AccordionTab header="Header II">
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-              architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                            voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
-            </AccordionTab>
-
-            <AccordionTab header="Header III">
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-              cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-                            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-            </AccordionTab>
-
-            <AccordionTab header="Header IV" disabled />
+          <Accordion multiple activeIndex={[]}>
+            {faqs.map(faq => (
+              <AccordionTab header={faq.title}>
+                {faq.body}
+              </AccordionTab>
+            ))}
           </Accordion>
         </Section>
 
@@ -204,41 +177,13 @@ export default function Home() {
           contentClassName="px-20 py-20 flex flex-row flex-wrap justify-center gap-32"
           onIntersection={setIsOrganizeByVisible}
         >
-          <img
-            src="/assets/1519889957811.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.1s' }}
-          />
-          <img
-            src="/assets/chiba_university_logo_resized.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.2s' }}
-          />
-          <img
-            src="/assets/Logo-Dies-UNS.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.3s' }}
-          />
-          <img
-            src="/assets/Logo-UNS-Biru.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.4s' }}
-          />
-          <img
-            src="/assets/logo-hmte.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.5s' }}
-          />
-          <img
-            src="/assets/1462853_logo_1572951228_n.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.6s' }}
-          />
-          <img
-            src="/assets/Arms_of_KMITL.png"
-            className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
-            style={{ animationDelay: '.7s' }}
-          />
+          {organizer.map((e, i) => (
+            <img
+              src={e}
+              className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
+              style={{ animationDelay: `.${i}s` }}
+            />
+          ))}
         </Section>
       </main>
 
