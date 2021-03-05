@@ -7,11 +7,13 @@ import Section from 'components/blocks/Section';
 import TheTimeline from 'components/ui/index/TheTimeline';
 import JudgeCard from 'components/ui/index/JudgeCard';
 import { about, terms, judges, faqs, organizer } from 'data/content';
+import useElementOnScreen from 'hooks/useElementOnScreen';
 
 const USDFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-const IDRFormat = amount => amount.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+const IDRFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'IDR' });
 
 export default function Home() {
+  const [h1Ref, isH1Visible] = useElementOnScreen({ threshold: 0 });
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);
@@ -27,7 +29,7 @@ export default function Home() {
         style={{ animation: 'hue-rotate 20s infinite' }}
       >
         <article className="w-full h-96 pb-16 sm:pb-4 bg-gradient-to-b from-purple-400 via-purple-500 to-indigo-500 flex flex-col justify-end">
-          <h1 className="font-bold text-center text-white">
+          <h1 ref={h1Ref} className={`font-bold text-center text-white animate__animated ${isH1Visible ? 'animate__fadeInDown' : 'animate__fadeOutDown'}`}>
             <span className="block text-4xl sm:text-6xl">
               SEBELAS MARET
             </span>
@@ -69,7 +71,7 @@ export default function Home() {
               <li
                 key={i}
                 className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}
-                style={{ animationDelay: `.${i * .05}s` }}
+                style={{ animationDelay: `${i * .05}s` }}
               >
                 <div className="w-6 h-6 mx-4">
                   <HiCheckCircle className="text-2xl text-green-400" />
@@ -102,26 +104,30 @@ export default function Home() {
 
           <div className={`prize order-1 lg:order-first ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
-            <span className="my-4 font-medium text-3xl lg:text-5xl text-white">{USDFormat(850)}</span>
+            <span className="mt-4 font-medium text-3xl lg:text-5xl text-white">{USDFormat(850)}</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(15_000_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <div className={`prize order-first lg:order-1 ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">1st</h5>
-            <span className="my-4 font-medium text-3xl lg:text-7xl text-white">{USDFormat(1000)}</span>
+            <span className="mt-4 font-medium text-3xl lg:text-7xl text-white">{USDFormat(1000)}</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(12_000_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <div className={`prize order-3 ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">3rd</h5>
-            <span className="my-4 font-medium text-3xl lg:text-3xl text-white">{USDFormat(700)}</span>
+            <span className="mt-4 font-medium text-3xl lg:text-3xl text-white">{USDFormat(700)}</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(10_000_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <span
-            className={`order-last w-full my-10 font-semibold text-center text-3xl bg-clip-text bg-gradient-to-br from-blue-500 to-indigo-500 text-transparent  ${isPrizeVisible && 'animate__animated animate__fadeInUp'}`}
+            className={`order-last w-full my-10 text-center bg-clip-text bg-gradient-to-br from-blue-500 to-indigo-500 text-transparent  ${isPrizeVisible && 'animate__animated animate__fadeInUp'}`}
           >
-            and, {USDFormat(70)} for each favorite winners
+            <p className="font-semibold text-3xl">and, {USDFormat(70)} for each favorite winners</p>
+            <p className="font-medium">({IDRFormat(1_000_000)})</p>
           </span>
         </Section>
 

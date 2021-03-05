@@ -5,7 +5,7 @@ const Menu = React.forwardRef(function ({
   children,
 }, ref) {
   const [[x, y], setPos] = useState([0, 0])
-  const open = useCallback(
+  const toggle = useCallback(
     e => {
       setVisible(!visible);
       const { bottom, left } = e.target.getBoundingClientRect();
@@ -17,14 +17,14 @@ const Menu = React.forwardRef(function ({
 
   useImperativeHandle(
     ref,
-    () => ({ open }),
+    () => ({ toggle }),
     [visible],
   );
 
   return (
     visible && (
       <div
-        className="fixed top-0 left-0 rounded-lg border shadow-lg"
+        className="fixed top-0 left-0 rounded-lg border shadow-lg animate__animated animate__bounceIn animate__faster"
         style={{
           top: `${x}px`,
           left: `${y}px`
