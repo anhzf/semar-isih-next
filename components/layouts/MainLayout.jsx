@@ -16,7 +16,7 @@ export default function MainLayout({ children }) {
     <Head>
       <title>SEBELAS MARET INTERNATIONAL IoT CHALLENGE 2021</title>
       <meta name="title" content={title} />
-      <link rel="shortcut icon" href="/assets/Logo-UNS-Biru.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="/assets/LOGO-SEMAR-IOT_no-text.png" type="image/x-icon" />
       <base href={basePath} />
       <meta name="description" content={about} />
       {/* Open Graph / Facebook */}

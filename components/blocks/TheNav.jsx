@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from 'primereact/button';
 import Menu from 'components/Menu';
 import Space from 'components/elements/Space';
@@ -10,8 +11,12 @@ export default function TheNav({ transparent }) {
   return (
     <nav className={`fixed hidden top-0 z-50 w-full px-16 py-2 ${transparent ? 'navbar-transparent bg-transparent' : 'bg-white shadow-md'} sm:flex flex-row flex-nowrap items-center gap-x-8`}>
       <Link href="/">
-        <a className="w-14 h-14">
-          <img src="/assets/Logo-UNS-Biru.png" alt="Logo UNS"/>
+        <a className="relative w-14 h-14">
+          <Image
+            src="/assets/LOGO-SEMAR-IOT_no-text.png"
+            alt="Logo Semar IOT"
+            layout="fill"
+          />
         </a>
       </Link>
 
