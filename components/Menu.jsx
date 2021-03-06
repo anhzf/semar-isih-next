@@ -41,7 +41,7 @@ const Item = function ({
   children,
 }) {
   return (
-    <li className="cursor-pointer px-5 py-4 bg-white first:rounded-t-lg last:rounded-b-lg hover:bg-gray-100">{children}</li>
+    <li className="cursor-pointer px-5 py-4 bg-white text-gray-800 first:rounded-t-lg last:rounded-b-lg hover:bg-gray-100">{children}</li>
   );
 };
 

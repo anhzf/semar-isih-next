@@ -2,12 +2,8 @@ html {
   scroll-behavior: smooth;
 }
 
-.p-timeline-event:nth-child(even) .p-card {
-  @apply ml-auto;
-}
-
-.p-timeline.p-timeline-vertical .p-timeline-event-content {
-  @apply py-4;
+.navbar-transparent .p-button-label {
+  @apply text-white !important;
 }
 
 #timeline .p-card .p-card-title {

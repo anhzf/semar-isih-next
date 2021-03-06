@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion'
 import { Button } from 'primereact/button';
 import { HiCheckCircle } from 'react-icons/hi'
+import { TransparentNavContext } from './_app';
 import MainLayout from 'components/layouts/MainLayout';
 import Section from 'components/blocks/Section';
 import TheTimeline from 'components/ui/index/TheTimeline';
 import JudgeCard from 'components/ui/index/JudgeCard';
-import { about, terms, judges, faqs, organizer } from 'data/content';
 import useElementOnScreen from 'hooks/useElementOnScreen';
+import { about, terms, judges, faqs, organizer } from 'data/content';
 
 const USDFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 const IDRFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'IDR' });
 
 export default function Home() {
-  const [h1Ref, isH1Visible] = useElementOnScreen({ threshold: 0 });
+  const [, setNavTransparent] = useContext(TransparentNavContext);
+  const [headerRef, isHeaderVisible] = useElementOnScreen({ threshold: 0 });
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);
@@ -22,14 +24,17 @@ export default function Home() {
   const [isOrganizeByVisible, setIsOrganizeByVisible] = useState(false);
   const [isFaqVisible, setIsFaqVisible] = useState(false);
 
+  useEffect(() => setNavTransparent?.(isHeaderVisible), [isHeaderVisible]);
+
   return (
     <MainLayout>
       <header
+        ref={headerRef}
         className="relative w-full"
         style={{ animation: 'hue-rotate 20s infinite' }}
       >
         <article className="w-full h-96 pb-16 sm:pb-4 bg-gradient-to-b from-purple-400 via-purple-500 to-indigo-500 flex flex-col justify-end">
-          <h1 ref={h1Ref} className={`font-bold text-center text-white animate__animated ${isH1Visible ? 'animate__fadeInDown' : 'animate__fadeOutDown'}`}>
+          <h1 className={`font-bold text-center text-white animate__animated ${isHeaderVisible ? 'animate__fadeInDown' : 'animate__fadeOutDown'}`}>
             <span className="block text-4xl sm:text-6xl">
               SEBELAS MARET
             </span>
@@ -37,6 +42,10 @@ export default function Home() {
               INTERNATIONAL IoT CHALLENGE 2021
             </span>
           </h1>
+
+          <a href="http://bit.ly/SemarIoT2021-guidelines" target="_blank" rel="noopener noreferrer" className="self-center">
+            <Button label="Download Guidelines" className={`p-button-rounded p-button-warning mt-6 animate__animated ${isHeaderVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
+          </a>
         </article>
 
         <div className="relative w-full bg-transparent fill-current">
@@ -54,7 +63,7 @@ export default function Home() {
           onIntersection={setIsAboutVisible}
           observerOption={{ threshold: .25 }}
         >
-          <p className="mx-auto w-full max-w-2xl leading-relaxed">
+          <p className="mx-auto w-full max-w-3xl leading-relaxed">
             {about}
           </p>
         </Section>
@@ -70,7 +79,7 @@ export default function Home() {
             {terms.map((term, i) => (
               <li
                 key={i}
-                className={`px-2 py-5 bg-white rounded flex flex-row items-center hover:bg-gray-50 animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}
+                className={`px-2 py-5 bg-white rounded flex flex-row items-center animate__animated ${isTermsVisible ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'}`}
                 style={{ animationDelay: `${i * .05}s` }}
               >
                 <div className="w-6 h-6 mx-4">
@@ -84,7 +93,7 @@ export default function Home() {
           <span className={`text-center animate__animated ${isTermsVisible ? 'animate__fadeIn' : 'animate__fadeOut'}`}>For further information, please download the guide book below.</span>
 
           <a href="http://bit.ly/SemarIoT2021-guidelines" target="_blank" rel="noopener noreferrer" className="self-center">
-            <Button label="Download Guidelines" className={`p-button-rounded mt-6 animate__animated ${isTermsVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
+            <Button label="Download Guidelines" className={`p-button-rounded p-button-warning mt-6 animate__animated ${isTermsVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
           </a>
         </Section>
 
@@ -168,9 +177,9 @@ export default function Home() {
           contentClassName={`mx-auto max-w-screen-lg animate__animated ${isFaqVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
           onIntersection={setIsFaqVisible}
         >
-          <Accordion multiple activeIndex={[]}>
+          <Accordion activeIndex={0}>
             {faqs.map(faq => (
-              <AccordionTab header={faq.title}>
+              <AccordionTab key={faq.title} header={faq.title}>
                 {faq.body}
               </AccordionTab>
             ))}
@@ -185,6 +194,7 @@ export default function Home() {
         >
           {organizer.map((e, i) => (
             <img
+              key={i}
               src={e}
               className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
               style={{ animationDelay: `.${i}s` }}
@@ -192,7 +202,6 @@ export default function Home() {
           ))}
         </Section>
       </main>
-
     </MainLayout>
   );
 };
