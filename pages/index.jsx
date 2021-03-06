@@ -114,14 +114,14 @@ export default function Home() {
           <div className={`prize order-1 lg:order-first ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
             <span className="mt-4 font-medium text-3xl lg:text-5xl text-white">{USDFormat(850)}</span>
-            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(15_000_000)})</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(12_000_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <div className={`prize order-first lg:order-1 ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">1st</h5>
             <span className="mt-4 font-medium text-3xl lg:text-7xl text-white">{USDFormat(1000)}</span>
-            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(12_000_000)})</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(15_000_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
