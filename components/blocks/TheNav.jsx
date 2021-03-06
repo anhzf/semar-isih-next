@@ -40,19 +40,19 @@ export default function TheNav({ transparent }) {
         </Menu>
       </div>
 
-      <a href="#terms">
+      <a href="/#terms">
         <Button label="Guidelines" className="p-button-text p-button-rounded" />
       </a>
 
-      <a href="#timeline">
+      <a href="/#timeline">
         <Button label="Timeline" className="p-button-text p-button-rounded" />
       </a>
 
-      <a href="#judges">
+      <a href="/#judges">
         <Button label="Judges" className="p-button-text p-button-rounded" />
       </a>
 
-      <a href="#faq">
+      <a href="/#faq">
         <Button label="FAQ" className="p-button-text p-button-rounded" />
       </a>
 

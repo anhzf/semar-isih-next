@@ -15,7 +15,7 @@ const IDRFormat = amount => amount.toLocaleString('en-US', { style: 'currency', 
 
 export default function Home() {
   const [, setNavTransparent] = useContext(TransparentNavContext);
-  const [headerRef, isHeaderVisible] = useElementOnScreen({ threshold: 0 });
+  const [headerRef, isHeaderVisible] = useElementOnScreen({ threshold: .1 });
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);

@@ -1,10 +1,18 @@
+import { useEffect, useContext } from 'react';
+import useElementOnScreen from 'hooks/useElementOnScreen';
 import MainLayout from 'components/layouts/MainLayout';
 
 export default function AboutUNS() {
+  const [, setNavTransparent] = useContext(TransparentNavContext);
+  const [headerRef, isHeaderVisible] = useElementOnScreen({ threshold: .1 });
+
+  useEffect(() => setNavTransparent?.(isHeaderVisible), [isHeaderVisible]);
+
   return (
     <MainLayout>
       <section className="w-full mb-16 flex flex-col items-center">
         <img
+          ref={headerRef}
           src="https://uns.ac.id/id/wp-content/uploads/rektorat-gedung-1-5.jpg"
           alt="UNS"
           className="w-full"
