@@ -1,6 +1,7 @@
 import { useEffect, useContext } from 'react';
-import useElementOnScreen from 'hooks/useElementOnScreen';
+import { TransparentNavContext } from './_app';
 import MainLayout from 'components/layouts/MainLayout';
+import useElementOnScreen from 'hooks/useElementOnScreen';
 
 export default function AboutUNS() {
   const [, setNavTransparent] = useContext(TransparentNavContext);
