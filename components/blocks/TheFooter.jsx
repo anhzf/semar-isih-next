@@ -7,9 +7,9 @@ export default function TheFooter() {
 
           <ul className="mt-3 font-light flex flex-col gap-y-2">
             <li>Instagram: <a href="https://www.instagram.com/hmteuns/" target="_blank" className="text-blue-300 hover:underline">@hmteuns</a></li>
-            <li>Whatsapp: <a href="https://wa.me/6292922299292" target="_blank" className="text-blue-300 hover:underline">+62 9292 2299 292</a></li>
+            <li>Whatsapp: <a href="https://wa.me/6287731393200" target="_blank" className="text-blue-300 hover:underline">+62 8773 1393 200</a></li>
             <li>Facebook: <a href="http://https://www.facebook.com/hmteuns" target="_blank" className="text-blue-300 hover:underline">HMTE UNS</a></li>
-            <li>Email: <a href="mailto:hmte@uns.ac.id" target="_blank" className="text-blue-300 hover:underline">hmte@uns.ac.id</a></li>
+            <li>Email: <a href="mailto:iotlab@ft.uns.ac.id" target="_blank" className="text-blue-300 hover:underline">iotlab@ft.uns.ac.id</a></li>
           </ul>
         </div>
 
