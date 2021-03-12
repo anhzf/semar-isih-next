@@ -144,7 +144,7 @@ export default function Home() {
           title="Timeline"
           className="px-4 pt-10 pb-16 bg-indigo-50"
           titleClassName={isTimelineVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
-          contentClassName={isTimelineVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          contentClassName={`animate__animated ${isTimelineVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
           onIntersection={setIsTimelineVisible}
         >
           <TheTimeline />

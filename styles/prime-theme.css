@@ -2,10 +2,40 @@
   @apply text-white;
 }
 
+.p-timeline-event-opposite {
+  flex: 0;
+}
+
+.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) {
+  @apply flex-row;
+}
+
+.p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-content {
+  @apply text-left;
+}
+
+.p-timeline-event:nth-child(even) .p-card {
+  @apply ml-auto;
+}
+
 .p-timeline-event:nth-child(even) .p-card {
   @apply ml-auto;
 }
 
 .p-timeline.p-timeline-vertical .p-timeline-event-content {
   @apply py-4;
+}
+
+@screen md {
+  .p-timeline-event-opposite {
+    flex: 1;
+  }
+
+  .p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) {
+    @apply flex-row-reverse;
+  }
+
+  .p-timeline-vertical.p-timeline-alternate .p-timeline-event:nth-child(even) .p-timeline-event-content {
+    @apply text-right;
+  }
 }
