@@ -3,6 +3,7 @@ import React, { useState, useCallback, useRef, useImperativeHandle } from 'react
 
 const Menu = React.forwardRef(function ({
   stateHandler: [visible, setVisible] = useState(false),
+  offset: [offsetX, offsetY] = [0, 0],
   children,
 }, ref) {
   const menuRef = useRef(null);
@@ -12,7 +13,7 @@ const Menu = React.forwardRef(function ({
       setVisible(!visible);
       const { bottom = 0, left = 0 } = e?.target?.getBoundingClientRect?.() || {};
 
-      setPos([bottom, left]);
+      setPos([left, bottom]);
     },
     [visible],
   );
@@ -31,8 +32,8 @@ const Menu = React.forwardRef(function ({
         ref={menuRef}
         className="fixed top-0 left-0 rounded-lg border shadow-lg animate__animated animate__bounceIn animate__faster"
         style={{
-          top: `${x}px`,
-          left: `${y}px`
+          top: `${y + offsetY}px`,
+          left: `${x + offsetX}px`
         }}
       >
         <ul className="relative flex flex-col">
