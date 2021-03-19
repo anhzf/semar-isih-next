@@ -9,6 +9,7 @@ import TheTimeline from 'components/ui/index/TheTimeline';
 import JudgeCard from 'components/ui/index/JudgeCard';
 import useElementOnScreen from 'hooks/useElementOnScreen';
 import { about, terms, judges, faqs, organizer } from 'data/content';
+import { sponsors } from 'data/content';
 
 const USDFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 const IDRFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'IDR' });
@@ -23,6 +24,7 @@ export default function Home() {
   const [isTermsVisible, setIsTermsVisible] = useState(false);
   const [isOrganizeByVisible, setIsOrganizeByVisible] = useState(false);
   const [isFaqVisible, setIsFaqVisible] = useState(false);
+  const [isSponsorVisible, setIsSponsorVisible] = useState(false);
 
   useEffect(() => setNavTransparent?.(isHeaderVisible), [isHeaderVisible]);
 
@@ -192,14 +194,56 @@ export default function Home() {
           contentClassName="px-20 py-20 flex flex-row flex-wrap justify-center gap-32"
           onIntersection={setIsOrganizeByVisible}
         >
-          {organizer.map((e, i) => (
+          {organizer.map((el, i) => (
             <img
               key={i}
-              src={e}
+              src={el}
               className={`w-32 h-32 object-contain animate__animated ${isOrganizeByVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
               style={{ animationDelay: `.${i}s` }}
             />
           ))}
+        </Section>
+
+        <Section
+          title="Sponsors"
+          className="bg-indigo-50"
+          titleClassName={isSponsorVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+          contentClassName="py-6 py-12 md:py-20 flex flex-row flex-col justify-center items-stretch gap-6 md:gap-32"
+          onIntersection={setIsSponsorVisible}
+          observerOption={{ threshold: .01 }}
+        >
+          <div className="flex flex-row flex-wrap justify-center gap-6 sm:gap-12 md:gap-32">
+            {sponsors.large.map((el, i) => (
+              <img
+                key={i}
+                src={el}
+                className={`w-96 h-96 object-contain animate__animated ${isSponsorVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
+                style={{ animationDelay: `.${i}s` }}
+              />
+            ))}
+          </div>
+
+          <div className="flex flex-row flex-wrap justify-center gap-6 md:gap-32">
+            {sponsors.medium.map((el, i) => (
+              <img
+                key={i}
+                src={el}
+                className={`w-48 h-48 object-contain animate__animated ${isSponsorVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
+                style={{ animationDelay: `.${i + sponsors.large.length}s` }}
+              />
+            ))}
+          </div>
+
+          <div className="flex flex-row flex-wrap justify-center gap-16 md:gap-32">
+            {sponsors.small.map((el, i) => (
+              <img
+                key={i}
+                src={el}
+                className={`w-24 h-24 object-contain animate__animated ${isSponsorVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`}
+                style={{ animationDelay: `.${i + sponsors.large.length + sponsors.medium.length}s` }}
+              />
+            ))}
+          </div>
         </Section>
       </main>
     </MainLayout>

@@ -128,3 +128,26 @@ export const organizer = [
   '/assets/1462853_logo_1572951228_n.png',
   '/assets/Arms_of_KMITL.png',
 ];
+
+export const sponsors = {
+  large: [
+    'http://sinarsosro.id/files/images/Logo TBS Orange.jpg',
+    'http://sinarsosro.id/files/images/Logo FTS 2017-01.jpg',
+  ],
+
+  medium: [
+    'http://sinarsosro.id/files/images/Logo Country Choice-01.png',
+    'http://sinarsosro.id/files/images/Logo-Prim-a.png',
+    'http://sinarsosro.id/files/images/Logo-STEE.png',
+    'http://sinarsosro.id/files/images/Logo-TEBS-Sparkling.jpg',
+  ],
+
+  small: [
+    'http://sinarsosro.id/files/images/Logo TBS Orange.jpg',
+    'http://sinarsosro.id/files/images/Logo FTS 2017-01.jpg',
+    'http://sinarsosro.id/files/images/Logo Country Choice-01.png',
+    'http://sinarsosro.id/files/images/Logo-Prim-a.png',
+    'http://sinarsosro.id/files/images/Logo-STEE.png',
+    'http://sinarsosro.id/files/images/Logo-TEBS-Sparkling.jpg',
+  ]
+};
