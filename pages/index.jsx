@@ -7,8 +7,9 @@ import MainLayout from 'components/layouts/MainLayout';
 import Section from 'components/blocks/Section';
 import TheTimeline from 'components/ui/index/TheTimeline';
 import JudgeCard from 'components/ui/index/JudgeCard';
+import FinalistCard from 'components/ui/index/FinalistCard';
 import useElementOnScreen from 'hooks/useElementOnScreen';
-import { about, terms, judges, faqs, organizer } from 'data/content';
+import { about, finalists, terms, judges, faqs, organizer } from 'data/content';
 import { sponsors } from 'data/content';
 
 const USDFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
@@ -19,6 +20,7 @@ export default function Home() {
   const [headerRef, isHeaderVisible] = useElementOnScreen({ threshold: .1 });
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
+  const [isFinalistVisible, setIsFinalistVisible] = useState(false);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);
   const [isJudgesVisible, setIsJudgesVisible] = useState(false);
   const [isTermsVisible, setIsTermsVisible] = useState(false);
@@ -68,6 +70,20 @@ export default function Home() {
           <p className="mx-auto w-full max-w-3xl leading-relaxed">
             {about}
           </p>
+        </Section>
+
+        <Section
+          title="The Finalists"
+          contentClassName="finalists__section"
+          onIntersection={setIsFinalistVisible}
+        >
+          {finalists.map((finalist, i) => (
+            <FinalistCard
+              key={i}
+              title={finalist.teamName}
+              origin={finalist.origin}
+            />
+          ))}
         </Section>
 
         <Section
