@@ -74,7 +74,7 @@ export default function Home() {
 
         <Section
           title="The Finalists"
-          contentClassName="finalists__section"
+          contentClassName="w-full grid grid-cols-[repeat(4,1fr)]"
           onIntersection={setIsFinalistVisible}
         >
           {finalists.map((finalist, i) => (
@@ -82,6 +82,7 @@ export default function Home() {
               key={i}
               title={finalist.teamName}
               origin={finalist.origin}
+              link={finalist.link}
             />
           ))}
         </Section>

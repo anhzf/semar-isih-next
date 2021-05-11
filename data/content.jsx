@@ -4,6 +4,7 @@ export const finalists = [
   {
     teamName: 'Darkest Muzhan',
     origin: 'Spain',
+    link: 'http://google.com/',
   },
 ];
 

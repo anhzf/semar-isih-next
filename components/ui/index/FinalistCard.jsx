@@ -3,12 +3,17 @@ import React from 'react';
 const FinalistCard = ({
   title,
   origin,
+  link,
   className,
   ...props
 }) => (
   <article className={`bg-white rounded shadow ${className}`} {...props}>
-    <h5>{ title }</h5>
-    <span>{ origin }</span>
+    <a href={link} target="_blank">
+      <h2 className="my-4 font-medium text-2xl text-center text-purple-500">{title}</h2>
+      <blockquote className="px-4 pt-2 pb-4 text-center italic">
+        {origin}
+      </blockquote>
+    </a>
   </article>
 );
 
