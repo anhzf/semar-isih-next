@@ -74,6 +74,7 @@ export default function Home() {
 
         <Section
           title="The Finalists"
+          className="bg-indigo-50"
           contentClassName="w-full grid grid-cols-[repeat(4,1fr)]"
           onIntersection={setIsFinalistVisible}
         >
@@ -85,6 +86,90 @@ export default function Home() {
               link={finalist.link}
             />
           ))}
+        </Section>
+
+        <Section
+          title="Webinar and Awarding Session"
+          contentClassName="w-full px-8 grid grid-cols-[1fr] lg:grid-cols-[repeat(3,1fr)] gap-6"
+        >
+          <img src="/assets/poster webinar and awarding session.jpeg" alt="" className="w-full row-span-2" />
+
+          <div className="w-full">
+            <div className="relative w-full">
+              <img src="/assets/webinar speaker prof. josaphat.jpeg" alt="" className="w-full h-80 object-cover object-top" />
+
+              <div className="absolute bottom-0 w-full p-2 bg-purple-500 text-white border-t-4 border-yellow-400 flex flex-col justify-center items-center">
+                <span>Prof. Josaphat Tetuko Sri Sumantyo, B.Eng., M.Eng., Ph.D.</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <div className="relative w-full">
+              <img src="/assets/webinar speaker Ir. Teguh.jpeg" alt="" className="w-full h-80 object-cover object-top" />
+
+              <div className="absolute bottom-0 w-full p-2 bg-purple-500 text-white border-t-4 border-yellow-400 flex flex-col justify-center items-center">
+                <span>Ir. Teguh Prasetya Mukti Wibawa Putra, M.T.</span>
+              </div>
+            </div>
+          </div>
+
+          <article className="col-span-2 flex flex-col items-center gap-y-8">
+            <h3 className="font-semibold text-2xl text-center text-purple-500">Synergy of IoT Innovation for Pandemic Recovery in Sustainable Society 5.0</h3>
+
+            <div className="w-full flex flex-col items-center">
+              <span className="font-semibold text-lg text-center text-blue-500">Registration</span>
+
+              <span className="text-center">
+                <span className="px-0.5 bg-yellow-400 bg-opacity-80 font-semibold text-white">FREE</span>, register via {' '}
+                <a href="http://bit.ly/RegisterSemar-IoTWebinar" target="_blank" className="text-blue-500">http://bit.ly/RegisterSemar-IoTWebinar</a>
+              </span>
+            </div>
+
+            <div className="w-full flex flex-col items-center">
+              <span className="font-semibold text-lg text-center text-blue-500">Benefits</span>
+
+              <span>📃 E-Certificate</span>
+            </div>
+
+            <div className="w-full flex flex-col items-center">
+              <span className="font-semibold text-lg text-center text-blue-500">Terms and Condition</span>
+
+              <ol className="list-decimal">
+                <li>Follow <a href="https://instagram/hmteuns" target="_blank" className="text-blue-500">@hmteuns</a> & <a href="https://instagram.com/semariot.uns" target="_blank" className="text-blue-500">@semariot.uns</a></li>
+                <li>Upload twibbon (<a href="https://i2.wp.com/trendnesia.com/wp-content/uploads/2021/04/Hooh-1.jpg" target="_blank" className="text-blue-500">unduh twibbon</a>)</li>
+              </ol>
+            </div>
+
+            <div className="w-full flex flex-col items-center">
+              <span className="font-semibold text-lg text-center text-blue-500">Event details</span>
+
+              <table className="w-full max-w-prose border">
+                <tr>
+                  <td className="p-1.5 border border-gray-300">Day and Date</td>
+                  <td className="p-1.5 border border-gray-300">Thursday,  20th May  2021</td>
+                </tr>
+                <tr>
+                  <td className="p-1.5 border border-gray-300">Time</td>
+                  <td className="p-1.5 border border-gray-300">09.00 AM (Indonesia Western Standard Time, GMT+7)</td>
+                </tr>
+                <tr>
+                  <td className="p-1.5 border border-gray-300">Platform</td>
+                  <td className="p-1.5 border border-gray-300">Zoom meetings and Youtube ElSemar TV</td>
+                </tr>
+              </table>
+            </div>
+
+            <div className="w-full flex flex-col items-center">
+              <span className="font-semibold text-lg text-center text-blue-500">For further information, please contact us</span>
+
+              <ul className="list-disc">
+                <li>WhatsApp: <a href="https://wa.me/6289693553019" target="_blank" className="text-blue-500">wa.me/6289693553019</a> (Azalia)</li>
+                <li>WhatsApp: <a href="https://wa.me/6281326185668" target="_blank" className="text-blue-500">wa.me/6289693553019</a> (Dheanera)</li>
+                <li>Email: <a href="mailto:iotlab@ft.uns.ac.id" target="_blank" className="text-blue-500">iotlab@ft.uns.ac.id</a></li>
+              </ul>
+            </div>
+          </article>
         </Section>
 
         <Section
