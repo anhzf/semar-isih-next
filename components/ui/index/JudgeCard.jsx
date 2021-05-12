@@ -30,7 +30,9 @@ const JuryCard = ({
 
     <div className="p-4 flex flex-row gap-x-4">
       <a href={linkedinLink} target="_blank">
-        <IoLogoLinkedin className="w-10 h-10 text-blue-200 hover:text-blue-500" />
+        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+          Profile
+        </button>
       </a>
     </div>
   </article>

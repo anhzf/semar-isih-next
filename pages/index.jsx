@@ -75,15 +75,17 @@ export default function Home() {
         <Section
           title="The Finalists"
           className="bg-indigo-50"
-          contentClassName="w-full grid grid-cols-[repeat(4,1fr)]"
+          contentClassName="w-full grid grid-cols-[repeat(4,1fr)] gap-x-5 gap-y-5"
           onIntersection={setIsFinalistVisible}
         >
           {finalists.map((finalist, i) => (
             <FinalistCard
               key={i}
+              finalistLink={finalist.finalistUrl}
               title={finalist.teamName}
               origin={finalist.origin}
-              link={finalist.link}
+              className={isFinalistVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
+              style={{ animationDelay: `.${i}s` }}
             />
           ))}
         </Section>
@@ -92,7 +94,7 @@ export default function Home() {
           title="Webinar and Awarding Session"
           contentClassName="w-full px-8 grid grid-cols-[1fr] lg:grid-cols-[repeat(3,1fr)] gap-6"
         >
-          <img src="/assets/poster webinar and awarding session.jpeg" alt="" className="w-full row-span-2" />
+          <img src="/assets/poster_fix.jpeg" alt="" className="w-full row-span-2" />
 
           <article className="col-span-2 flex flex-col items-center gap-y-8">
             <h3 className="max-w-prose font-semibold text-2xl text-center text-purple-500">Synergy of IoT Innovation for Pandemic Recovery in Sustainable Society 5.0</h3>
@@ -116,8 +118,8 @@ export default function Home() {
               <span className="font-semibold text-lg text-center text-blue-500">Terms and Condition</span>
 
               <ol className="list-decimal">
-                <li>Follow <a href="https://instagram/hmteuns" target="_blank" className="text-blue-500">@hmteuns</a> & <a href="https://instagram.com/semariot.uns" target="_blank" className="text-blue-500">@semariot.uns</a></li>
-                <li>Upload twibbon (<a href="https://i2.wp.com/trendnesia.com/wp-content/uploads/2021/04/Hooh-1.jpg" target="_blank" className="text-blue-500">unduh twibbon</a>)</li>
+                <li>Follow <a href="https://instagram.com/hmteuns" target="_blank" className="text-blue-500">@hmteuns</a> & <a href="https://instagram.com/semariot.uns" target="_blank" className="text-blue-500">@semariot.uns</a></li>
+                <li>Upload twibbon (<a href="https://twb.nz/twibbonsemariot2021" target="_blank" className="text-blue-500">Download twibbon</a>)</li>
               </ol>
             </div>
 
@@ -144,8 +146,8 @@ export default function Home() {
               <span className="font-semibold text-lg text-center text-blue-500">For further information, please contact us</span>
 
               <ul className="list-disc">
-                <li>WhatsApp: <a href="https://wa.me/6289693553019" target="_blank" className="text-blue-500">wa.me/6289693553019</a> (Azalia)</li>
-                <li>WhatsApp: <a href="https://wa.me/6281326185668" target="_blank" className="text-blue-500">wa.me/6289693553019</a> (Dheanera)</li>
+                <li>WhatsApp: <a href="https://wa.me/6289693553019" target="_blank" className="text-blue-500">+62 89693553019</a> (Azalia)</li>
+                <li>WhatsApp: <a href="https://wa.me/6281326185668" target="_blank" className="text-blue-500">+62 81326185668</a> (Dheanera)</li>
                 <li>Email: <a href="mailto:iotlab@ft.uns.ac.id" target="_blank" className="text-blue-500">iotlab@ft.uns.ac.id</a></li>
               </ul>
             </div>
@@ -198,14 +200,14 @@ export default function Home() {
           <div className={`prize order-1 lg:order-first ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">2nd</h5>
             <span className="mt-4 font-medium text-3xl lg:text-5xl text-white">{USDFormat(850)}</span>
-            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(12_000_000)})</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(12_250_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
           <div className={`prize order-first lg:order-1 ${isPrizeVisible && 'animate'}`}>
             <h5 className="font-semibold text-2xl text-yellow-700">1st</h5>
             <span className="mt-4 font-medium text-3xl lg:text-7xl text-white">{USDFormat(1000)}</span>
-            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(15_000_000)})</span>
+            <span className="mb-4 font-light text-sm text-right text-gray-800">({IDRFormat(14_400_000)})</span>
             <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </div>
 
@@ -221,6 +223,7 @@ export default function Home() {
           >
             <p className="font-semibold text-3xl">and, {USDFormat(70)} for each favorite winners</p>
             <p className="font-medium">({IDRFormat(1_000_000)})</p>
+            <span className="text-xl text-right text-blue-700">+ e-certificate</span>
           </span>
         </Section>
 

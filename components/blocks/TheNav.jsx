@@ -62,7 +62,7 @@ export default function TheNav({ transparent }) {
           <Button label="FAQ" className="p-button-text p-button-rounded" />
         </a>
 
-        <a href="http://bit.ly/SemarIoT2021-register" target="_blank" className="hidden sm:inline-block">
+        <a href="" className="hidden sm:inline-block">
           <Button label="Register" className="p-button-rounded p-button-warning" />
         </a>
 
@@ -104,7 +104,7 @@ export default function TheNav({ transparent }) {
             </Menu.Item>
 
             <Menu.Item>
-              <a href="http://bit.ly/SemarIoT2021-register" target="_blank">Register</a>
+              <a href="####" target="_blank">Register</a>
             </Menu.Item>
           </Menu>
         </div>

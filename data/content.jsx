@@ -2,37 +2,94 @@ export const about = 'The Covid-19 pandemic has changed the human lifestyle arou
 
 export const finalists = [
   {
-    teamName: 'Darkest Muzhan',
-    origin: 'Spain',
-    link: 'http://google.com/',
+    finalistUrl: 'https://www.youtube.com/watch?v=cl21MrJmG3U',
+    teamName: 'AirBE',
+    origin: 'Universitas Airlangga (Indonesia)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=nl9yC3PKIe8&t=43s',
+    teamName: 'AIOT+',
+    origin: 'KMITL (Thailand)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=6dA4RwHjmmE',
+    teamName: 'Aktiv UNS',
+    origin: 'Universitas Sebelas Maret (Indonesia)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=4N55r1rKw5c',
+    teamName: 'EIFRA',
+    origin: 'Politeknik Elektronika Negeri Surabaya (Indonesia)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=9KutMoeyGPI',
+    teamName: 'E-ven',
+    origin: 'KMITL (Thailand)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=Guo43Nx9Ct8',
+    teamName: 'Horizon',
+    origin: 'Khulna University of Engineering and Technology (Bangladesh)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=JxHbVDnarVA',
+    teamName: 'I-Mask',
+    origin: 'Institut Teknologi Sepuluh November (Indonesia)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=wC5iFPm_61k',
+    teamName: 'INO-G',
+    origin: 'Institut Teknologi Sepuluh November (Indonesia)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=Hj-ynk8opZk',
+    teamName: 'Krowd',
+    origin: 'KMITL (Thailand)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=U0zTA9Z0kiA',
+    teamName: 'Stingak Team',
+    origin: 'Universitas Pendidikan Indonesia (Indonesia)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=IMwPtTj__TE',
+    teamName: 'TEAM BLAZE',
+    origin: 'Sri Krishna College of Engineering and Technology (India)',
+  },
+  {
+    finalistUrl: 'https://www.youtube.com/watch?v=FwFG2wInkss',
+    teamName: 'The Dadakanz',
+    origin: 'Universitas Pendidikan Indonesia (Indonesia)',
   },
 ];
 
 export const terms = [
   'Participants are undergraduate students worldwide',
-  'Each team consists of 3-5 persons',
-  'The team must come from one same university',
+  'Each team consists of 3-5 students',
+  'Each team consists of a leader and members',
+  'Each team must include 1 lecturer-in-charge',
+  'The team must come from the same university',
   'The team members can consist of various faculties or departments',
-  'Each participants are only allowed to be in 1 team',
-  'Each team consists of a head, members, and a lecturer-in-charge',
-  'Each team only allowed to collect one title',
+  'Each participant is only allowed to be in 1 team',
+  'Each team only allowed to submit one title',
   'Participants must follow the timeline that has been determined',
-  'The team that qualified for the Grand Final shall present the project through Zoom Cloud Meetings on May 19, 2021',
-  'Participants who do not eligible may forfeit',
+  'The team that qualified for the Grand Final/Finalist Evaluation shall present the project through Zoom Cloud Meetings on May 19,2021',
+  'Participants who do not eligible may disqualify',
+  'The decision of the judges is final and cannot be changed',
 ];
 
 export const events = [
   {
     status: 'Registration & Open Submission',
-    date: '01 March - 30 March 2021',
+    date: '01 March - 30 April 2021',
   },
   {
     status: 'Desk Evaluation',
-    date: '01 April - 30 April 2021',
+    date: '01 May - 10 May 2021',
   },
   {
     status: 'Finalist Announcement',
-    date: '02 Mei 2021 ',
+    date: '11 May 2021 ',
   },
   {
     status: 'Grand Final (Online Presentation)',
@@ -46,34 +103,28 @@ export const events = [
 
 export const judges = [
   {
-    name: 'Coming soon',
-    photo: '',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis.',
-    linkedinUrl: 'https://linkedin.com',
+    name: 'Dr. Fethma M Nor',
+    photo: '/assets/DrFethma.jpg',
+    desc: 'Department of Mechanical Engineering | Faculty of Engineering and Science, Curtin University',
+    linkedinUrl: 'https://engsci.curtin.edu.my/departments/mechanical-engineering/staff/dr-fethma-m-nor/',
   },
   {
-    name: 'Coming soon',
-    photo: '',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis.',
-    linkedinUrl: 'https://linkedin.com',
+    name: 'Dr. Denni Kurniawan',
+    photo: '/assets/DrDenni3.jpg',
+    desc: 'Faculty of Engineering, Universiti Teknologi Brunei',
+    linkedinUrl: 'http://www.utb.edu.bn/denni-kurniawan/',
   },
   {
-    name: 'Coming soon',
-    photo: '',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis.',
-    linkedinUrl: 'https://linkedin.com',
+    name: 'Prof. Kuncoro Diharjo, S.T., M.T',
+    photo: '/assets/ProfKuncoroo.jpg',
+    desc: 'Vice Rector of Research and Inovation, Universitas Sebelas Maret',
+    linkedinUrl: 'https://sinta.ristekbrin.go.id/authors/detail?id=5988496&view=overview',
   },
   {
-    name: 'Coming soon',
-    photo: '',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis.',
-    linkedinUrl: 'https://linkedin.com',
-  },
-  {
-    name: 'Coming soon',
-    photo: '',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, facilis.',
-    linkedinUrl: 'https://linkedin.com',
+    name: 'Priagung Utomo',
+    photo: '/assets/PriagungUtomo.jpg',
+    desc: 'Senior Vice President - Head of Core Product & Solution, Indosat Ooredoo',
+    linkedinUrl: 'https://id.linkedin.com/in/priagung-utomo-b81620168',
   },
 ];
 
@@ -98,11 +149,11 @@ export const faqs = [
     title: 'The benefits for joining this event?',
     body: (
       <ul>
-        <li>- 1st Prize IDR 15,000,000 + e-certificate</li>
-        <li>- 2nd Prize IDR 12,000,000 + e-certificate</li>
-        <li>- 3rd Prize IDR 10,000,000 + e-certificate</li>
-        <li>- Special award Prize IDR 1,000,000</li>
-        <li>- Every participants will recieve e-Certificate</li>
+        <li>- 1st Prize USD 1000 (IDR 14,400,000) + e-certificate</li>
+        <li>- 2nd Prize USD 850 (IDR 12,250,000) + e-certificate</li>
+        <li>- 3rd Prize USD 700 (IDR 10,000,000) + e-certificate</li>
+        <li>- Special award Prize USD 70 (IDR 1,000,000) + e-certificate</li>
+        <li>- Every participants will receive e-certificate</li>
       </ul>
     ),
   },
@@ -128,34 +179,25 @@ export const faqs = [
 ];
 
 export const organizer = [
-  '/assets/1519889957811.png',
-  '/assets/chiba_university_logo_resized.png',
   '/assets/Logo-Dies-UNS.png',
   '/assets/Logo-UNS-Biru.png',
   '/assets/logo-hmte.png',
+  '/assets/1519889957811.png',
   '/assets/1462853_logo_1572951228_n.png',
   '/assets/Arms_of_KMITL.png',
 ];
 
 export const sponsors = {
   large: [
-    'http://sinarsosro.id/files/images/Logo TBS Orange.jpg',
-    'http://sinarsosro.id/files/images/Logo FTS 2017-01.jpg',
+    ,
   ],
 
   medium: [
-    'http://sinarsosro.id/files/images/Logo Country Choice-01.png',
-    'http://sinarsosro.id/files/images/Logo-Prim-a.png',
-    'http://sinarsosro.id/files/images/Logo-STEE.png',
-    'http://sinarsosro.id/files/images/Logo-TEBS-Sparkling.jpg',
+    '/assets/indosat.png',
   ],
 
   small: [
-    'http://sinarsosro.id/files/images/Logo TBS Orange.jpg',
-    'http://sinarsosro.id/files/images/Logo FTS 2017-01.jpg',
-    'http://sinarsosro.id/files/images/Logo Country Choice-01.png',
-    'http://sinarsosro.id/files/images/Logo-Prim-a.png',
-    'http://sinarsosro.id/files/images/Logo-STEE.png',
-    'http://sinarsosro.id/files/images/Logo-TEBS-Sparkling.jpg',
+    ,
   ]
+
 };
