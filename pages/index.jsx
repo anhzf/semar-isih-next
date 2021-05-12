@@ -94,28 +94,8 @@ export default function Home() {
         >
           <img src="/assets/poster webinar and awarding session.jpeg" alt="" className="w-full row-span-2" />
 
-          <div className="w-full">
-            <div className="relative w-full">
-              <img src="/assets/webinar speaker prof. josaphat.jpeg" alt="" className="w-full h-80 object-cover object-top" />
-
-              <div className="absolute bottom-0 w-full p-2 bg-purple-500 text-white border-t-4 border-yellow-400 flex flex-col justify-center items-center">
-                <span>Prof. Josaphat Tetuko Sri Sumantyo, B.Eng., M.Eng., Ph.D.</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full">
-            <div className="relative w-full">
-              <img src="/assets/webinar speaker Ir. Teguh.jpeg" alt="" className="w-full h-80 object-cover object-top" />
-
-              <div className="absolute bottom-0 w-full p-2 bg-purple-500 text-white border-t-4 border-yellow-400 flex flex-col justify-center items-center">
-                <span>Ir. Teguh Prasetya Mukti Wibawa Putra, M.T.</span>
-              </div>
-            </div>
-          </div>
-
           <article className="col-span-2 flex flex-col items-center gap-y-8">
-            <h3 className="font-semibold text-2xl text-center text-purple-500">Synergy of IoT Innovation for Pandemic Recovery in Sustainable Society 5.0</h3>
+            <h3 className="max-w-prose font-semibold text-2xl text-center text-purple-500">Synergy of IoT Innovation for Pandemic Recovery in Sustainable Society 5.0</h3>
 
             <div className="w-full flex flex-col items-center">
               <span className="font-semibold text-lg text-center text-blue-500">Registration</span>
