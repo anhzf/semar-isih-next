@@ -104,7 +104,7 @@ export default function TheNav({ transparent }) {
             </Menu.Item>
 
             <Menu.Item>
-              <a href="####" target="_blank">Register</a>
+              <a href="">Register</a>
             </Menu.Item>
           </Menu>
         </div>
