@@ -126,6 +126,12 @@ export const judges = [
     desc: 'Senior Vice President - Head of Core Product & Solution, Indosat Ooredoo',
     linkedinUrl: 'https://id.linkedin.com/in/priagung-utomo-b81620168',
   },
+  {
+    name: 'Asst. Prof. Dr. Sarinporn Visitsattapongse',
+    photo: '/assets/DrSarinporn.jpg',
+    desc: 'Head of Department of Biomedical Engineering, Faculty of Engineering KMITL',
+    linkedinUrl: 'http://www.bmekmitl.org/staff/',
+  },
 ];
 
 export const faqs = [

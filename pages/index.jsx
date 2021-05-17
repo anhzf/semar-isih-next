@@ -119,7 +119,7 @@ export default function Home() {
 
               <ol className="list-decimal">
                 <li>Follow <a href="https://instagram.com/hmteuns" target="_blank" className="text-blue-500">@hmteuns</a> & <a href="https://instagram.com/semariot.uns" target="_blank" className="text-blue-500">@semariot.uns</a></li>
-                <li>Upload twibbon (<a href="https://twb.nz/twibbonsemariot2021" target="_blank" className="text-blue-500">Download twibbon</a>)</li>
+                <li>Upload Twibbon (<a href="https://twb.nz/twibbonsemariot2021" target="_blank" className="text-blue-500">Twibbon</a>)</li>
               </ol>
             </div>
 
@@ -137,7 +137,7 @@ export default function Home() {
                 </tr>
                 <tr>
                   <td className="p-1.5 border border-gray-300">Platform</td>
-                  <td className="p-1.5 border border-gray-300">Zoom meetings and Youtube ElSemar TV</td>
+                  <td className="p-1.5 border border-gray-300">Zoom meetings and Youtube Fakultas Teknik UNS</td>
                 </tr>
               </table>
             </div>
