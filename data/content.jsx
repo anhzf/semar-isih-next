@@ -109,13 +109,13 @@ export const judges = [
     linkedinUrl: 'https://engsci.curtin.edu.my/departments/mechanical-engineering/staff/dr-fethma-m-nor/',
   },
   {
-    name: 'Dr. Denni Kurniawan',
+    name: 'Asst. Prof. Dr. Denni Kurniawan, B.ENG., M.ENG., D.ENG.',
     photo: '/assets/DrDenni3.jpg',
     desc: 'Faculty of Engineering, Universiti Teknologi Brunei',
     linkedinUrl: 'http://www.utb.edu.bn/denni-kurniawan/',
   },
   {
-    name: 'Prof. Kuncoro Diharjo, S.T., M.T',
+    name: 'Prof. Dr. Kuncoro Diharjo, S.T., M.T',
     photo: '/assets/ProfKuncoroo.jpg',
     desc: 'Vice Rector of Research and Inovation, Universitas Sebelas Maret',
     linkedinUrl: 'https://sinta.ristekbrin.go.id/authors/detail?id=5988496&view=overview',
