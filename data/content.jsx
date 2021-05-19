@@ -1,5 +1,29 @@
 export const about = 'The Covid-19 pandemic has changed the human lifestyle around the world. In everything limited, the internet is a technology that can be relied on to break through these limitations. Therefore, the Sebelas Maret International IoT Challenge 2021 was present. This competition’s theme is "IoT Innovation For Covid-19 Pandemic Recovery, “ held by the Faculty of Engineering Universitas Sebelas Maret Surakarta. We invite undergraduate students worldwide to participate in this competition by providing Internet of Things (IoT) ideas in dealing with the Covid-19 pandemic. Through the Sebelas Maret International IoT Challenge 2021, we hope that the resulting ideas can help deal with the Covid-19 pandemic in various sectors.';
 
+export const theChampions = [
+  {
+    productName: 'Tempe kacang panjang',
+    teamName: 'ATTN.aTTaX',
+    pictureUrl: 'http://placeimg.com/640/480/tech',
+    origin: 'Sakarya University (Kartasura)',
+    badgeLabel: '1',
+  },
+  {
+    productName: 'Telur asin rasa pop ice',
+    teamName: 'QueeN Walkers',
+    pictureUrl: 'http://placeimg.com/640/480/tech',
+    origin: 'SMAIT Nur Hidayah (Kartasura)',
+    badgeLabel: '2',
+  },
+  {
+    productName: 'Destroyer Machine using redstone',
+    teamName: 'Khabane Lame',
+    pictureUrl: 'http://placeimg.com/640/480/tech',
+    origin: 'University Of Muhammadiyah (Los Angels)',
+    badgeLabel: '3',
+  },
+];
+
 export const finalists = [
   {
     finalistUrl: 'https://www.youtube.com/watch?v=cl21MrJmG3U',

@@ -7,9 +7,9 @@ import MainLayout from 'components/layouts/MainLayout';
 import Section from 'components/blocks/Section';
 import TheTimeline from 'components/ui/index/TheTimeline';
 import JudgeCard from 'components/ui/index/JudgeCard';
-import FinalistCard from 'components/ui/index/FinalistCard';
+import TheChampionCard from 'components/ui/index/TheChampionCard';
 import useElementOnScreen from 'hooks/useElementOnScreen';
-import { about, finalists, terms, judges, faqs, organizer } from 'data/content';
+import { about, theChampions, terms, judges, faqs, organizer } from 'data/content';
 import { sponsors } from 'data/content';
 
 const USDFormat = amount => amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
@@ -20,7 +20,7 @@ export default function Home() {
   const [headerRef, isHeaderVisible] = useElementOnScreen({ threshold: .1 });
   const [isPrizeVisible, setIsPrizeVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
-  const [isFinalistVisible, setIsFinalistVisible] = useState(false);
+  const [isFinalistVisible, setIsTheChampionsVisible] = useState(false);
   const [isTimelineVisible, setIsTimelineVisible] = useState(false);
   const [isJudgesVisible, setIsJudgesVisible] = useState(false);
   const [isTermsVisible, setIsTermsVisible] = useState(false);
@@ -73,17 +73,15 @@ export default function Home() {
         </Section>
 
         <Section
-          title="The Finalists"
+          title="The Champions 🎉"
           className="bg-indigo-50"
-          contentClassName="w-full grid grid-cols-[repeat(4,1fr)] gap-x-5 gap-y-5"
-          onIntersection={setIsFinalistVisible}
+          contentClassName="w-full grid grid-cols-3 items-center"
+          onIntersection={setIsTheChampionsVisible}
         >
-          {finalists.map((finalist, i) => (
-            <FinalistCard
+          {theChampions.map((theChampion, i) => (
+            <TheChampionCard
               key={i}
-              finalistLink={finalist.finalistUrl}
-              title={finalist.teamName}
-              origin={finalist.origin}
+              {...theChampion}
               className={isFinalistVisible ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutUp'}
               style={{ animationDelay: `.${i}s` }}
             />
