@@ -50,7 +50,7 @@ export default function Home() {
           <span className="mt-6 font-medium text-2xl text-center text-white">(The event has ended)</span>
 
           <a href="/#theChampions🎉" className="self-center">
-            <Button label="Lihat pemenang" className={`p-button-rounded p-button-warning animate__animated ${isHeaderVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
+            <Button label="The Champions" className={`p-button-rounded p-button-warning animate__animated ${isHeaderVisible ? 'animate__fadeInUp' : 'animate__fadeOutUp'}`} />
           </a>
         </article>
 

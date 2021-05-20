@@ -2,24 +2,24 @@ export const about = 'The Covid-19 pandemic has changed the human lifestyle arou
 
 export const theChampions = [
   {
-    teamName: 'Tempe kacang panjang',
-    pictureUrl: 'http://placeimg.com/640/480/tech',
-    collegeOrigin: 'Sakarya University',
-    countryOrigin: 'Kartasura',
+    teamName: 'I-MASK',
+    pictureUrl: 'https://cdn.discordapp.com/attachments/699803800956829746/844820172165349417/unknown.png',
+    collegeOrigin: 'Institut Teknologi Sepuluh November',
+    countryOrigin: 'Indonesia',
     badgeLabel: '1',
   },
   {
-    teamName: 'Telur asin rasa pop ice',
-    pictureUrl: 'http://placeimg.com/640/480/tech',
-    collegeOrigin: 'IAIN Kartasura',
-    countryOrigin: 'Indonesia',
+    teamName: 'KROWD',
+    pictureUrl: 'https://cdn.discordapp.com/attachments/699803800956829746/844819309900333097/unknown.png',
+    collegeOrigin: 'King Mongkuts Institute of Technology Ladkrabang',
+    countryOrigin: 'Thailand',
     badgeLabel: '2',
   },
   {
-    teamName: 'Destroyer Machine using redstone',
-    pictureUrl: 'http://placeimg.com/640/480/tech',
-    collegeOrigin: 'University Of Muhammadiyah',
-    countryOrigin: 'Los Angels',
+    teamName: 'INO-G',
+    pictureUrl: 'https://cdn.discordapp.com/attachments/699803800956829746/844820534021980190/unknown.png',
+    collegeOrigin: 'Institut Teknologi Sepuluh November',
+    countryOrigin: 'Indonesia',
     badgeLabel: '3',
   },
 ];
