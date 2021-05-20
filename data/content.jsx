@@ -2,24 +2,24 @@ export const about = 'The Covid-19 pandemic has changed the human lifestyle arou
 
 export const theChampions = [
   {
-    productName: 'Tempe kacang panjang',
-    teamName: 'ATTN.aTTaX',
+    teamName: 'Tempe kacang panjang',
     pictureUrl: 'http://placeimg.com/640/480/tech',
-    origin: 'Sakarya University (Kartasura)',
+    collegeOrigin: 'Sakarya University',
+    countryOrigin: 'Kartasura',
     badgeLabel: '1',
   },
   {
-    productName: 'Telur asin rasa pop ice',
-    teamName: 'QueeN Walkers',
+    teamName: 'Telur asin rasa pop ice',
     pictureUrl: 'http://placeimg.com/640/480/tech',
-    origin: 'SMAIT Nur Hidayah (Kartasura)',
+    collegeOrigin: 'IAIN Kartasura',
+    countryOrigin: 'Indonesia',
     badgeLabel: '2',
   },
   {
-    productName: 'Destroyer Machine using redstone',
-    teamName: 'Khabane Lame',
+    teamName: 'Destroyer Machine using redstone',
     pictureUrl: 'http://placeimg.com/640/480/tech',
-    origin: 'University Of Muhammadiyah (Los Angels)',
+    collegeOrigin: 'University Of Muhammadiyah',
+    countryOrigin: 'Los Angels',
     badgeLabel: '3',
   },
 ];

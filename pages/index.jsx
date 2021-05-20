@@ -77,7 +77,7 @@ export default function Home() {
         <Section
           title="The Champions 🎉"
           className="bg-indigo-50"
-          contentClassName="w-full grid grid-cols-3 items-center"
+          contentClassName="w-full grid grid-cols-3 items-stretch"
           onIntersection={setIsTheChampionsVisible}
         >
           {theChampions.map((theChampion, i) => (
